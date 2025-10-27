@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToLogin();
+  }
+
+  _navigateToLogin() async {
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushReplacementNamed(context, '/login');
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Simulate a delay for the splash screen
-    Future.delayed(const Duration(seconds: 3), () {
-      // In the future, we will navigate to the login or home screen
-      // based on the user's authentication status.
-      // For now, we'll just print a message.
-      print("Splash screen finished.");
-    });
-
     return Scaffold(
       body: Center(
         child: Column(
